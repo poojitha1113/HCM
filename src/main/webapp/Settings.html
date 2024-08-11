@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e0f7fa; /* Light green background color */
+        }
+
+        header {
+            background-color: #009688; /* Teal header color */
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+
+        nav {
+            background-color: #26a69a; /* Teal navigation bar color */
+            overflow: hidden;
+        }
+
+        .settings-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .payroll-options {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .payroll-options label {
+            margin-right: 20px;
+            display: inline-block;
+            font-size: 16px;
+        }
+
+        .submit-button {
+            margin-top: 20px;
+        }
+
+        .submit-button button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .submit-button button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Settings</h1>
+</header>
+
+<nav>
+    <button class="back-button" onclick="navigateToMain()">Back to Main</button>
+</nav>
+
+<div class="settings-container">
+    <h2>Select Payroll Type:</h2>
+    <!-- Payroll Type Selection Form -->
+    <div class="payroll-options">
+        <label>
+            <input type="radio" name="payrollType" value="time" checked> Time
+        </label>
+        <label>
+            <input type="radio" name="payrollType" value="date"> Date
+        </label>
+    </div>
+    <div class="submit-button">
+        <button onclick="submitChanges()">Submit Changes</button>
+    </div>
+</div>
+
+<script>
+    // Function to navigate to the appropriate payroll calculation page based on the selected radio button
+    function submitChanges() {
+        // Get the selected value
+        var selectedPayrollType = document.querySelector('input[name="payrollType"]:checked').value;
+
+        // Redirect based on the selected payroll type
+        if (selectedPayrollType === 'time') {
+            window.location.href = 'Calulate_payroll_time.jsp';
+        } else if (selectedPayrollType === 'date') {
+            window.location.href = 'Calulate_payroll_date.jsp';
+        }
+    }
+
+    // Function to navigate back to the main page
+    function navigateToMain() {
+        window.location.href = 'main.html'; // Change this to the appropriate main page URL
+    }
+</script>
+</body>
+</html>
